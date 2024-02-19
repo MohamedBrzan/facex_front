@@ -119,7 +119,7 @@ const SinglePost = ({ postId, postIndex, refetchPosts }: Props) => {
                   </div>
 
                   <div className='user_position'>
-                    <small>{post.user.profession}</small>
+                    <small>{post.user.profession || 'Software Engineer'}</small>
                   </div>
                 </div>
               </div>

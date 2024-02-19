@@ -38,9 +38,11 @@ const Aside = () => {
 
                       <div className='info'>
                         <div className='user'>
-                          <h6 className='title'>{name?.first}</h6>
+                          <h6 className='title'>
+                            {`${name?.first} ${name?.last}`}
+                          </h6>
                           <p className='subtitle'>
-                            <small>{profession}</small>
+                            <small>{profession || 'Software Engineer'}</small>
                           </p>
                         </div>
                         <FollowBtn
