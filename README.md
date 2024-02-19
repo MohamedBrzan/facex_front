@@ -1,4 +1,4 @@
-# FaceX Website [FACEX](https://facex-frontend.onrender.com)
+# FaceX Website [FACEX](https://facex-front.onrender.com)
 
 ![FACEX Image](src/assets/interface.png)
 
