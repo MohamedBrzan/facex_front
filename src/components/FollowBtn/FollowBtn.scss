@@ -1,0 +1,21 @@
+@use '../../sass/Colors' as *;
+@use '../../sass/Styles' as *;
+
+.follow_btn {
+  @extend %primaryBtn;
+  position: relative;
+  &.unconnected {
+    &::before {
+      font: var(--fa-font-solid);
+      content: '\f234';
+      padding: 0 5px;
+    }
+  }
+  &.connected {
+    &::before {
+      font: var(--fa-font-solid);
+      content: '\f007';
+      padding: 0 5px;
+    }
+  }
+}

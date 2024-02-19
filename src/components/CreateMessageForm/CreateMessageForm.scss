@@ -1,0 +1,21 @@
+@use '../../sass/Colors' as *;
+@use '../../sass/Styles' as *;
+@use '../../sass/Mixins' as *;
+
+.create_message_form {
+  @extend %displayFlexCenter;
+  flex-direction: column;
+  width: 100%;
+  textarea {
+    resize: none;
+    border: 2px solid $third !important;
+    box-shadow: none !important;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .submit_btn {
+    @extend %primaryCircledBtn;
+    margin: 5px 0 0 auto;
+  }
+}

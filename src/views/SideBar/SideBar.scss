@@ -1,0 +1,128 @@
+@use '../../sass/Colors' as *;
+@use '../../sass/Mixins' as *;
+@use '../../sass/Styles' as *;
+
+.sidebar {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  @extend %miniSectionSize;
+  .feed_identity,
+  .recent_identity {
+    @extend %sectionStyle;
+    position: relative;
+    @include Responsive('xs') {
+      margin-bottom: 15px;
+    }
+    @include Responsive('md') {
+      margin-bottom: 0;
+    }
+    & {
+      margin-bottom: 7px;
+      .padding {
+        padding: 5px 10px;
+      }
+    }
+    hr {
+      color: $third;
+      margin: 0;
+    }
+  }
+  .feed_identity {
+    figure {
+      margin: 0 auto;
+    }
+    figure.cover {
+      width: 100%;
+      height: 60px;
+      overflow: hidden;
+      img.cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    figure.me {
+      @extend %displayFlexCenter;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      transform: translateY(-40px);
+      border: 3px solid $general;
+      img.me {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .user_info {
+      @extend %displayFlexCenter;
+      flex-direction: column;
+      .name {
+        color: $secondary;
+        margin: 0;
+      }
+      .title {
+        color: $third;
+      }
+    }
+    .analysis,
+    .items {
+      font-size: 15px;
+      color: $third;
+      text-decoration: none;
+      display: block;
+      padding: 5px 0 5px 10px;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:hover {
+        background-color: $hover_secondary;
+      }
+    }
+    .items {
+      svg {
+        margin: 0 5px;
+      }
+      font-weight: 500;
+    }
+  }
+
+  .recent_identity {
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      color: $primary;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    small {
+      font-size: 12px;
+    }
+    section {
+      margin-bottom: 10px;
+      .item {
+        cursor: pointer;
+        &:hover {
+          background-color: $hover_secondary;
+        }
+      }
+      svg {
+        padding: 0 0.3rem;
+      }
+    }
+    .discover_btn {
+      padding: 10px;
+      @extend %displayFlexCenter;
+      text-decoration: none;
+      color: $third;
+      font-weight: 600;
+      &:hover {
+        background-color: $hover_secondary;
+      }
+    }
+  }
+}

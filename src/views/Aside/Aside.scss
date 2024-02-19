@@ -1,0 +1,80 @@
+@use '../../sass/Colors' as *;
+@use '../../sass/Styles' as *;
+@use '../../sass/Mixins' as *;
+
+aside {
+  width: 100%;
+  height: 100%;
+  section.add_feed {
+    @extend %sectionStyle;
+    padding: 0.8rem 1rem;
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .feeds {
+      .feed {
+        @extend %displayFlexContentStart;
+        gap: 10px;
+        margin-bottom: 10px;
+        figure {
+          margin: 0;
+          width: clamp(35px, 50px, 100%);
+          height: clamp(35px, 50px, 100%);
+          border-radius: 50%;
+          overflow: hidden;
+          vertical-align: middle;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .user {
+            h6.title {
+              margin: 0;
+              color: $secondary;
+            }
+            p.subtitle {
+              color: $third;
+              margin: 0 0 0.3rem;
+            }
+          }
+          .follow_btn {
+            @extend %secondaryCircledOutlinedBtn;
+          }
+        }
+      }
+    }
+
+    a.recommendations {
+      text-decoration: none;
+      color: $third;
+      opacity: 0.7;
+      font-weight: 700;
+      padding: 0 3px;
+      border-radius: 3px;
+      transition: 0.1s ease-in-out;
+      &:hover {
+        background-color: $hover_secondary;
+        color: $secondary;
+      }
+      @include Responsive('xs') {
+        font-size: 13px;
+      }
+      @include Responsive('xl') {
+        font-size: 1rem;
+      }
+    }
+  }
+  .line {
+    @extend %hrLine;
+  }
+}

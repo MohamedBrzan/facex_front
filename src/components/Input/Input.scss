@@ -1,0 +1,53 @@
+@use '../../sass/Colors' as *;
+@use '../../sass/Mixins' as *;
+@use '../../sass/Styles' as *;
+
+.input_wrapper {
+  position: relative;
+  border-radius: 7px;
+  border: 1px solid $secondary;
+  max-height: 52px;
+  height: 52px;
+  @extend %displayFlexCenter;
+  flex-direction: column;
+  label {
+    color: $secondary;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    &.active {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      font-size: 14px;
+      z-index: 99;
+    }
+  }
+  input {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: 0;
+    padding: 0 0.3rem;
+    outline: none;
+    border-radius: 7px;
+
+    // &:focus {
+    //   & + label {
+    //     position: absolute;
+    //     top: 5px;
+    //     left: 10px;
+    //     font-size: 14px;
+    //     z-index: 99;
+    //   }
+    // }
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+  &.active {
+    outline: 2px solid $primary;
+  }
+}

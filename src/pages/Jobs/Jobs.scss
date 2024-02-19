@@ -1,0 +1,208 @@
+@use '../../sass/Styles' as *;
+@use '../../sass/Colors' as *;
+@use '../../sass/Mixins' as *;
+
+.jobs {
+  margin: 1rem 0 0;
+  .left_aside {
+    @include Responsive('xs') {
+      max-width: 100%;
+    }
+    @include Responsive('md') {
+      max-width: 225px;
+    }
+    .links {
+      @extend %miniSectionStyle;
+      a {
+        @extend %displayFlexContentStart;
+        padding: 0.5rem 0;
+        text-decoration: none;
+        color: $secondary;
+        font-weight: 500;
+      }
+      .text {
+        padding: 0 0.7rem;
+        font-size: 14px;
+      }
+    }
+    .post_job {
+      margin-top: 1.5rem;
+      width: 100%;
+      @extend %displayFlexCenter;
+      .create_btn {
+        width: 100%;
+        text-align: center;
+        @extend %primaryCircledOutlinedBtn;
+        background-color: transparent;
+        text-decoration: none;
+        display: block;
+        padding: 0.8rem 0rem;
+        border-radius: 60px;
+      }
+    }
+  }
+  .jobs_view {
+    @include Responsive('xs') {
+      margin: 1rem 0 0 0;
+    }
+    @include Responsive('md') {
+      margin: 0;
+    }
+    .recommendation {
+      @extend %sectionStyle;
+      .head {
+        padding: 1rem;
+        .title {
+          margin: 0;
+          color: $secondary;
+        }
+        .subtitle {
+          margin: 0;
+          color: $third;
+        }
+        margin: 0 0 1rem;
+      }
+      .job_recommend {
+        cursor: pointer;
+        padding: 1rem;
+        .data_info {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          .text_sec {
+            @extend %displayFlexStart;
+            gap: 10px;
+            figure {
+              margin: 0;
+              width: 50px;
+              height: 50px;
+              overflow: hidden;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            .title {
+              color: $secondary;
+            }
+            .subtitle,
+            .job_info,
+            .job_time {
+              margin: 0;
+              color: $third;
+            }
+            .subtitle,
+            .job_info {
+              font-size: 15px;
+            }
+            .job_time {
+              font-size: 12px;
+              span {
+                &:first-child {
+                  color: $green_primary;
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+        .svg {
+          @extend %displayFlexContentSpaceBetween;
+          > div {
+            @extend %darkIconStyle;
+            &.eye {
+              display: none;
+            }
+          }
+        }
+        &:hover {
+          .svg {
+            .eye {
+              display: flex;
+            }
+          }
+        }
+      }
+      hr {
+        color: $third;
+        margin: 1rem 0 0;
+      }
+      .show_link {
+        padding: 10px;
+        @extend %displayFlexCenter;
+        text-decoration: none;
+        color: $third;
+        font-weight: 500;
+        &:hover {
+          background-color: $hover_secondary;
+        }
+        svg {
+          padding: 0 1rem;
+        }
+      }
+    }
+  }
+  .right_aside {
+    @extend %miniSectionSize;
+    @include Responsive('xs') {
+      margin: 1rem 0;
+    }
+    @include Responsive('md') {
+      margin: 0;
+    }
+    .job_seeker {
+      @extend %sectionStyle;
+      margin: 0 0 1rem;
+      .head {
+        padding: 1rem;
+        .title,
+        .subtitle {
+          margin: 0;
+        }
+        .title {
+          color: $secondary;
+        }
+        .subtitle {
+          color: $third;
+        }
+      }
+      .middle {
+        @extend %displayFlexContentSpaceBetween;
+        padding: 0.3rem 1rem;
+        background-color: #f8fafd;
+        margin: 0.1rem;
+        figure {
+          background-color: #f8fafd;
+          margin: 0;
+          padding: 0;
+          width: 50px;
+          height: 50px;
+          border: 1px solid black;
+          border-radius: 5px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+      .last {
+        padding: 1rem;
+        line-height: 1.2;
+        a {
+          font-weight: 500;
+          color: #c398f5;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+            color: #a575db;
+          }
+        }
+        svg {
+          padding: 0 0.3rem;
+        }
+      }
+    }
+  }
+}

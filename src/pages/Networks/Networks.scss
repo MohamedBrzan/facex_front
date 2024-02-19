@@ -1,0 +1,145 @@
+@use '../../sass/Colors' as *;
+@use '../../sass/Mixins' as *;
+@use '../../sass/Styles' as *;
+
+.networks {
+  margin: 15px 0 0;
+  .aside_networks {
+    @extend %sectionStyle;
+    @extend %miniSectionSize;
+    height: auto;
+    .title {
+      margin: 0;
+      color: $third;
+      padding: 1.4rem;
+    }
+    .links_management {
+      display: flex;
+      flex-direction: column;
+      .link_management {
+        @extend %displayFlexContentSpaceBetween;
+        padding: 0.5rem 0;
+        padding: 0.5rem 1.4rem;
+        cursor: pointer;
+        &:hover {
+          background-color: $hover_secondary;
+        }
+        .info {
+          @extend %displayFlexContentStart;
+          gap: 10px;
+          color: $third;
+        }
+        .counts {
+          color: $third;
+        }
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+    button {
+      @extend %secondaryBtn;
+      outline: none;
+      border: none;
+      margin: 1rem;
+      .icon {
+        padding: 0 0.3rem;
+      }
+      background: none;
+      font-weight: 500;
+      &.hidden {
+        display: none;
+      }
+    }
+    hr {
+      margin: 0.3rem 0;
+      color: $third;
+    }
+    footer {
+      padding: 1rem 0;
+    }
+  }
+  .discover_networks {
+    @extend %miniSectionStyle;
+    article {
+      margin: 0 0 2rem;
+      .head {
+        @extend %displayFlexContentSpaceBetween;
+        color: $third;
+        margin: 0 0 0.5rem;
+        a {
+          @extend %secondaryBtn;
+          text-decoration: none;
+          font-weight: 500;
+        }
+      }
+      .data_row {
+        margin: 0;
+        padding: 0;
+        gap: 10px;
+        @extend %displayFlexCenter;
+        flex-wrap: wrap;
+
+        .person {
+          @extend %miniSectionStyle;
+          padding: 0;
+          max-width: 350px;
+          @include Responsive('xs') {
+            width: auto;
+          }
+          @include Responsive('lg') {
+            width: 250px;
+          }
+
+          figure.cover {
+            margin: 0;
+            width: 100%;
+            height: 50px;
+            position: relative;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          figure.avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            transform: translate(30%, -50%);
+            position: absolute;
+            margin: 0;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          .info {
+            padding: 0 1.4rem;
+            margin: 3rem 0 0;
+            .name,
+            p,
+            .mutual {
+              margin: 0;
+            }
+            .name {
+              color: $secondary;
+            }
+            .position,
+            .mutual {
+              color: $third;
+            }
+          }
+          .follow_btn {
+            width: 90%;
+            @extend %primaryCircledOutlinedBtn;
+            margin: 1rem auto;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

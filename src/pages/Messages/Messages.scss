@@ -1,0 +1,153 @@
+@use '../../sass/Colors' as *;
+@use '../../sass/Mixins' as *;
+@use '../../sass/Styles' as *;
+
+.messages {
+  margin: 1rem 0;
+  .chat_section {
+    .message_section {
+      @extend %sectionStyle;
+      .head {
+        padding: 0.3rem 1rem;
+        @extend %displayFlexContentSpaceBetween;
+        .svg {
+          @extend %displayFlexContentSpaceBetween;
+          .ellipsis,
+          .edit {
+            @extend %darkIconStyle;
+            padding: 0 0.3rem;
+          }
+        }
+      }
+      hr {
+        margin: 0;
+      }
+      .search_box {
+        position: relative;
+        padding: 0.2rem;
+        .svg {
+          position: absolute;
+          z-index: 99;
+          top: 3px;
+          right: 10px;
+          cursor: pointer;
+          @extend %darkIconStyle;
+          background-color: transparent;
+        }
+      }
+      .switches {
+        .switch_tabs {
+          @extend %displayFlexCenter;
+          gap: 30px;
+          color: $third;
+          font-weight: 500;
+          border-bottom: 1px solid $hover_secondary;
+          @include Responsive('xs') {
+            gap: 1px;
+            font-size: 14px;
+          }
+          .switch_tab {
+            padding: 0.7rem;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+              background-color: $hover_secondary;
+            }
+            &.selected {
+              color: $green_primary;
+              border-bottom: 2px solid $green_primary;
+              border-radius: 2px;
+            }
+          }
+        }
+        .contents {
+          width: 100%;
+          max-height: calc(100vh - 2rem);
+          overflow-y: auto;
+          .content {
+            display: none;
+            &.active {
+              display: block;
+            }
+            .networks_messages {
+              width: 100%;
+              max-height: calc(100vh - 2rem);
+              overflow-y: auto;
+            }
+          }
+        }
+        .msg {
+          .data {
+            cursor: pointer;
+            @extend %displayFlexStart;
+            padding: 1rem;
+            .data_info {
+              @extend %displayFlexStart;
+              gap: 10px;
+              figure {
+                margin: 0;
+                min-width: 50px;
+                min-height: 50px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                vertical-align: middle;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+              .name,
+              .position {
+                margin: 0;
+              }
+              .name {
+                color: $secondary;
+              }
+              .position {
+                color: $third;
+              }
+            }
+            .date_container {
+              position: relative;
+              @extend %displayFlexCenter;
+              text-align: center;
+              flex: 1;
+              .date {
+              }
+              .svg {
+                @extend %displayFlexCenter;
+                @extend %darkIconStyle;
+                background-color: transparent;
+                display: none;
+                svg {
+                  display: block;
+                }
+              }
+            }
+            &:hover {
+              background-color: $hover_secondary;
+              .date_container {
+                .date {
+                  display: none;
+                }
+                .svg {
+                  display: flex;
+                }
+              }
+            }
+          }
+          hr {
+            color: $third;
+            margin: 0 0 0 4.5rem;
+          }
+        }
+      }
+    }
+  }
+  .messages_aside {
+  }
+}

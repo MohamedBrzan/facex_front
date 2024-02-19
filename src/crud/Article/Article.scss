@@ -1,0 +1,361 @@
+@use '../../sass/Colors' as *;
+@use '../../sass/Mixins' as *;
+@use '../../sass/Styles' as *;
+
+.create_article {
+  background-color: $general;
+  .article_header {
+    border-bottom: 1px solid $hover_secondary;
+    margin: 0 0 1.5rem;
+    .row {
+      @extend %displayFlexCenter;
+      margin: 0;
+      text-align: center;
+      padding: 0.5rem;
+      flex-wrap: wrap;
+      .user_entity {
+        @extend %displayFlexStart;
+        position: relative;
+        @include Responsive('xs') {
+          margin: 0 0 10px;
+        }
+        @include Responsive('md') {
+          margin: 0;
+        }
+        .information {
+          @extend %secondaryBtn;
+          @extend %displayFlexStart;
+          gap: 10px;
+          figure {
+            margin: 0;
+            min-width: 40px;
+            min-height: 40px;
+            width: 40px;
+            height: 40px;
+            @include borderRadius('all', 50%);
+            overflow: hidden;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          .info {
+            @extend %displayFlexStart;
+            gap: 10px;
+            .text {
+              h5,
+              p {
+                @include overflowText(1);
+              }
+              p {
+                margin: 0;
+              }
+            }
+          }
+        }
+        .user_dropdown {
+          display: none;
+          &.active {
+            display: block;
+          }
+          .dropdown_details {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+              0 3px 6px rgba(0, 0, 0, 0.23);
+            position: absolute;
+            top: 70px;
+            left: 0;
+            @include Responsive('xs') {
+              width: 100%;
+            }
+            @include Responsive('md') {
+              width: 320px;
+            }
+            height: auto;
+            background-color: $general;
+            padding: 1rem;
+            @include borderRadius('right', 5px);
+            @include borderRadius('bottom-left', 5px);
+            z-index: 2;
+
+            .publish_as {
+              text-align: start;
+              .availability {
+                margin-top: 2rem;
+                @extend %displayFlexContentSpaceBetween;
+                .info {
+                  @extend %displayFlexStart;
+                  align-items: center;
+                  gap: 10px;
+                  figure {
+                    margin: 0;
+                    min-width: 40px;
+                    min-height: 40px;
+                    width: 40px;
+                    height: 40px;
+                    @include borderRadius('all', 50%);
+                    overflow: hidden;
+                    img {
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                    }
+                  }
+                  .username {
+                    color: $fourth;
+                    @include overflowText(1);
+                  }
+                }
+                .radio_1 {
+                  width: 25px;
+                  height: 25px;
+                  @include borderRadius('all', 50%);
+                  background-color: $green_primary;
+                  @extend %displayFlexCenter;
+                  .radio_2 {
+                    width: 13px;
+                    height: 13px;
+                    @include borderRadius('all', 50%);
+                    background-color: $general;
+                  }
+                }
+              }
+            }
+            hr {
+              color: $third;
+            }
+            .publish_to {
+              text-align: start;
+              .availability {
+                margin-top: 2rem;
+                @extend %displayFlexContentSpaceBetween;
+
+                .info {
+                  @extend %displayFlexStart;
+                  align-items: center;
+                  gap: 10px;
+                  .svg {
+                    font-size: 2rem;
+                    background-color: $body_color;
+                    padding: 0 0.5rem;
+                    @include borderRadius('all', 5px);
+                  }
+                  .name {
+                    color: $fourth;
+                    @include overflowText(1);
+                  }
+                }
+                .radio_1 {
+                  width: 25px;
+                  height: 25px;
+                  @include borderRadius('all', 50%);
+                  background-color: $green_primary;
+                  @extend %displayFlexCenter;
+                  .radio_2 {
+                    width: 13px;
+                    height: 13px;
+                    @include borderRadius('all', 50%);
+                    background-color: $general;
+                  }
+                }
+              }
+            }
+            .publish_as,
+            .publish_to {
+              cursor: pointer;
+            }
+          }
+          .user_dropdown_modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+          }
+        }
+      }
+
+      .styling {
+        margin: 0 auto;
+        @include Responsive('xs') {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        @include Responsive('md') {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        gap: 10px;
+        background-color: $body_color;
+        @include borderRadius('all', 30px);
+        padding: 0.5rem;
+        flex-wrap: wrap;
+        .clickable {
+          cursor: pointer;
+        }
+
+        .style_btn,
+        .bold,
+        .italic,
+        .unorder_list,
+        .order_list,
+        .quote_right,
+        .parentheses,
+        .link,
+        .code,
+        .image {
+          @extend %secondaryBtn;
+          font: {
+            weight: bold;
+          }
+        }
+        .style_btn {
+          .text {
+            @include Responsive('xs') {
+              font: {
+                size: 14px;
+                weight: 500;
+              }
+            }
+          }
+          margin: 0 0 0 1rem;
+          .svg {
+            padding: 0 5px;
+          }
+        }
+      }
+      .buttons {
+        @extend %displayFlexContentSpaceEvenly;
+        @include Responsive('xs') {
+          margin: 10px 0 0;
+        }
+        @include Responsive('md') {
+          margin: 0;
+        }
+        .svg {
+          padding: 0 5px;
+        }
+        .manage_btn {
+          @extend %displayFlexContentSpaceBetween;
+          @extend %primaryCircledOutlinedBtn;
+          position: relative;
+          .manage_btn_dropdown {
+            display: none;
+            &.active {
+              display: block;
+            }
+            .dropdown_links {
+              position: absolute;
+              width: 240px;
+              height: auto;
+              background-color: $general;
+              top: 50px;
+              left: 0;
+              box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+                0 3px 6px rgba(0, 0, 0, 0.23);
+              text-align: start;
+              @include borderRadius('right', 5px);
+              @include borderRadius('bottom-left', 5px);
+              z-index: 2;
+
+              hr {
+                margin: 0;
+              }
+              a {
+                padding: 0.3rem 1rem;
+                text-decoration: none;
+                display: block;
+                color: $third;
+                &:hover {
+                  background-color: $hover_secondary;
+                  color: $secondary;
+                }
+              }
+            }
+            .manage_btn_modal {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 1;
+            }
+          }
+        }
+        .next_btn {
+          @extend %displayFlexContentSpaceBetween;
+          @extend %primaryCircledBtn;
+        }
+      }
+    }
+  }
+
+  .article_body {
+    .upload_image {
+      padding: 1rem;
+      text-align: center;
+      @extend %displayFlexCenter;
+      flex-direction: column;
+      @include Responsive('xs') {
+        width: 100%;
+      }
+      @include Responsive('md') {
+        width: 720px;
+      }
+      height: 304px;
+      margin: 0 auto;
+      background-color: $body_color;
+      border: 1px solid $hover_secondary;
+      .upload_image_btn {
+        @extend %secondaryCircledOutlinedBtn;
+        .svg {
+          padding: 0 0.5rem;
+        }
+        @include Responsive('xs') {
+          font-size: 14px;
+        }
+        @include Responsive('md') {
+          font-size: 1rem;
+        }
+      }
+    }
+    .upload_text {
+      @extend %displayFlexCenter;
+      margin: 2rem auto;
+
+      @include Responsive('xs') {
+        width: 100%;
+      }
+      @include Responsive('md') {
+        width: 720px;
+      }
+      height: auto;
+      .input_section {
+        width: 100%;
+        textarea {
+          width: 100%;
+          resize: none;
+          border: 0;
+          outline: 0;
+          &[name='title'] {
+            font: {
+              size: 3rem;
+              weight: 600;
+            }
+          }
+          &[name='description'] {
+            font: {
+              size: 1.5rem;
+            }
+          }
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

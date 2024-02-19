@@ -1,0 +1,20 @@
+@use '../../sass/Mixins' as *;
+
+.home {
+  .aside_col {
+    @include Responsive('xs') {
+      display: none;
+    }
+    @include Responsive('lg') {
+      display: flex;
+    }
+  }
+  .row {
+    margin-top: 15px;
+    .hi {
+      background-color: red;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

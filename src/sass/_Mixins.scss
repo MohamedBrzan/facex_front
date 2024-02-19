@@ -1,0 +1,61 @@
+@mixin Responsive($size) {
+  @if ($size == 'xs') {
+    @media (min-width: 0px) {
+      @content;
+    }
+  } @else if($size == 'sm') {
+    @media (min-width: 577px) {
+      @content;
+    }
+  } @else if($size == 'md') {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if($size == 'lg') {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if($size == 'xl') {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  } @else if($size == '2xl') {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+}
+
+@mixin overflowText($line) {
+  overflow: hidden;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: normal;
+}
+
+@mixin borderRadius($borders, $count) {
+  @if ($borders == 'all') {
+    border-radius: $count;
+  } @else if ($borders == 'top-left') {
+    border-top-left-radius: $count;
+  } @else if($borders == 'top-right') {
+    border-top-right-radius: $count;
+  } @else if($borders == 'bottom-left') {
+    border-bottom-left-radius: $count;
+  } @else if($borders == 'bottom-right') {
+    border-bottom-right-radius: $count;
+  } @else if($borders == 'top') {
+    border-top-left-radius: $count;
+    border-top-right-radius: $count;
+  } @else if($borders == 'bottom') {
+    border-bottom-left-radius: $count;
+    border-bottom-right-radius: $count;
+  } @else if($borders == 'right') {
+    border-top-right-radius: $count;
+    border-bottom-right-radius: $count;
+  } @else if($borders == 'left') {
+    border-top-left-radius: $count;
+    border-bottom-left-radius: $count;
+  }
+}

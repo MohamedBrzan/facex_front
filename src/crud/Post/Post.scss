@@ -1,0 +1,249 @@
+@use '../../sass/Styles' as *;
+@use '../../sass/Mixins' as *;
+@use '../../sass/Colors' as *;
+
+.create_post {
+  @extend %sectionStyle;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  @include Responsive('xs') {
+    font-size: 11px;
+  }
+  @include Responsive('md') {
+    font-size: 1rem;
+  }
+  .text {
+    @extend %displayFlexContentStart;
+    gap: 15px;
+    figure {
+      margin: 0;
+      min-width: 50px;
+      min-height: 50px;
+      width: 50px;
+      height: 50px;
+      @include borderRadius('all', 50%);
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .input {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 30px;
+      border: 1px solid $third;
+      &:hover {
+        background-color: $hover_secondary;
+      }
+      &:before {
+        content: 'Start a post';
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        font: {
+          size: 1rem;
+          weight: 600;
+        }
+      }
+    }
+  }
+  .upload_post_form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    display: none;
+    &.active {
+      @extend %displayFlexCenter;
+    }
+    .content_form {
+      @extend %sectionStyle;
+      z-index: 2;
+      padding: 10px;
+      width: clamp(600px, 1000px, 100%);
+      min-height: 400px;
+
+      .user_info {
+        position: relative;
+        @extend %secondaryBtn;
+        @extend %displayFlexStart;
+        gap: 10px;
+        width: fit-content;
+        figure {
+          margin: 0;
+          min-width: 40px;
+          min-height: 40px;
+          width: 40px;
+          height: 40px;
+          @include borderRadius('all', 50%);
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .info {
+          .username,
+          .privacy {
+            @extend %displayFlexStart;
+            gap: 10px;
+            margin: 0;
+            @include overflowText(1);
+          }
+          .privacy_drop_menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            @extend %sectionStyle;
+            display: none;
+            &.active {
+              display: block;
+            }
+            .privacy_type {
+              @extend %displayFlexStart;
+              align-items: center;
+              gap: 10px;
+              position: relative;
+              padding: 0 0 10px 30px;
+              &.active {
+                .radio_1 {
+                  width: 15px;
+                  height: 15px;
+                  @include borderRadius('all', 50%);
+                  background-color: $green_primary;
+                  @extend %displayFlexCenter;
+                  .radio_2 {
+                    width: 7px;
+                    height: 7px;
+                    @include borderRadius('all', 50%);
+                    background-color: $general;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      form {
+        // #input {
+        //   color: rgba(0, 0, 0, 0.5);
+        //   width: 300px;
+        //   height: 50px;
+        //   border: 3px solid #212;
+        //   font-family: arial;
+        //   padding: 3px;
+        //   position: absolute;
+        //   z-index: 1;
+        //   margin: 0;
+        //   font-size: 12px;
+        //   white-space: pre;
+        // }
+
+        // #output span {
+        //   color: blue;
+        // }
+
+        // #output {
+        //   width: 300px;
+        //   height: 50px;
+        //   position: absolute;
+        //   z-index: 1;
+        //   border: 3px solid #212;
+        //   font-family: arial;
+        //   padding: 3px;
+        //   margin: 0;
+        //   font-size: 12px;
+        //   background-color: transparent;
+        //   color: rgba(0, 21, 5, 0.9);
+        //   white-space: pre;
+        // }
+        .textarea_div {
+          padding: 1rem 0.5rem;
+          width: clamp(600px, 1000px, 100%);
+          text-overflow: wrap;
+          border: none;
+          outline: none;
+          &:empty::before {
+            content: attr(placeholder);
+            pointer-events: none;
+            display: block; /* For Firefox */
+          }
+          a {
+            color: blue;
+          }
+          // &::before {
+          //   content: 'what is in your head?';
+          //   display: block;
+          // }
+        }
+        // textarea.form-control {
+        //   resize: none;
+        //   min-height: 250px;
+        //   box-shadow: none;
+        //   border: none;
+        //   outline: none;
+        //   &::placeholder {
+        //     font-size: 1.4rem;
+        //   }
+        //   &::-webkit-scrollbar {
+        //     display: none;
+        //   }
+        //   &.testing {
+        //     color: red;
+        //   }
+        // }
+        .submit_btn {
+          display: flex;
+          margin-left: auto;
+          margin-top: 15px;
+          @extend %primaryCircledBtn;
+        }
+      }
+    }
+    .form_modal {
+      @extend %modalStyle;
+      display: flex;
+      z-index: 1;
+    }
+  }
+  .files {
+    margin-top: 10px;
+    @extend %displayFlexContentSpaceEvenly;
+    flex-wrap: wrap;
+    .file {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem;
+      border-radius: 5px;
+      gap: 10px;
+      cursor: pointer;
+
+      > figure {
+        margin: 0;
+        width: 24px;
+        height: 24px;
+        img {
+          width: 100%;
+        }
+      }
+
+      &:hover {
+        background-color: $hover_secondary;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use '../../sass/Colors' as *;
+@use '../../sass/Styles' as *;
+
+footer {
+  @extend %displayFlexCenter;
+  color: $third;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 70%;
+  margin: auto;
+  word-wrap: break-word;
+  line-height: 1.6;
+  .footer_links {
+    @extend %displayFlexCenter;
+    flex-wrap: wrap;
+    a {
+      display: block;
+      font-size: 12px;
+      color: $third;
+      text-decoration: none;
+      margin: 5px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .bottom_line {
+    font-size: 12px;
+    margin-top: 1rem;
+  }
+}

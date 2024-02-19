@@ -1,0 +1,267 @@
+@use './Colors' as *;
+@use './Mixins' as *;
+
+%hrLine {
+  margin-top: 5px;
+  width: 100%;
+  height: 3px;
+  @extend %sectionStyle;
+}
+
+%modalStyle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+%sectionStyle {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05),
+    inset 0px 0px 0px 1px rgba(209, 213, 219, 1);
+  border-radius: 5px;
+  background-color: $general;
+  overflow: hidden;
+}
+
+%miniSectionStyle {
+  @extend %sectionStyle;
+  margin: 5px 0 0;
+  padding: 1.8rem;
+}
+
+%miniSectionSize {
+  @include Responsive('xs') {
+    max-width: 100%;
+  }
+  @include Responsive('md') {
+    max-width: 300px;
+  }
+}
+
+%followBtnStyle {
+  @extend %displayFlexContentSpaceBetween;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0.3rem 0.5rem;
+  color: $primary;
+  transition: background-color 0.2s linear;
+  .icon {
+    padding: 0 5px 0 0;
+  }
+  &:hover {
+    background-color: $hover_primary;
+  }
+}
+
+%followBtnStyle {
+  @extend %displayFlexContentSpaceBetween;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  transition: background-color 0.2s linear;
+  .icon {
+    padding: 0 5px 0 0;
+  }
+  &:hover {
+    background-color: $hover_primary;
+  }
+}
+
+%editBtn {
+  position: absolute;
+  top: 10px;
+  right: -5px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  svg {
+    background-color: $general;
+    border-radius: 50%;
+    padding: 0.5rem;
+    color: $primary;
+    &:hover {
+      background-color: $hover_secondary;
+    }
+  }
+}
+
+%btn {
+  @extend %displayFlexContentSpaceBetween;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  transition: background-color 0.2s linear;
+  .icon {
+    padding: 0 5px 0 0;
+  }
+}
+
+%primaryBtn {
+  @extend %btn;
+  @extend %displayFlexContentSpaceBetween;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  transition: background-color 0.2s linear;
+  color: $primary;
+  border-radius: 3px;
+  .icon {
+    padding: 0 5px 0 0;
+  }
+  &:hover {
+    background-color: $hover_primary;
+  }
+}
+
+%secondaryBtn {
+  @extend %primaryBtn;
+  color: $third;
+  &:hover {
+    background-color: $hover_secondary;
+    color: $secondary;
+  }
+}
+
+%primaryCircledBtn {
+  color: $general;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  background-color: $primary;
+  cursor: pointer;
+  font-weight: 500;
+  &:hover {
+    background-color: $hover_primary_dark;
+  }
+}
+
+%primaryCircledOutlinedBtn {
+  border: 1px solid $primary;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  color: $primary;
+  background-color: $general;
+  cursor: pointer;
+  font-weight: 500;
+  &:hover {
+    outline: auto;
+    outline-color: $primary;
+    background-color: $hover_primary;
+  }
+}
+
+%secondaryCircledBtn {
+  @extend %displayFlexContentSpaceBetween;
+  color: $secondary;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  .icon {
+    padding: 0 0.3rem;
+  }
+  &:hover {
+    background-color: $hover_secondary;
+  }
+}
+
+%secondaryCircledOutlinedBtn {
+  @extend %secondaryCircledBtn;
+  border: 1px solid $secondary;
+  &:hover {
+    outline: auto;
+    background-color: $hover_secondary;
+  }
+}
+
+%displayFlexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%displayFlexStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+%displayFlexEnd {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+%displayFlexContentStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+%displayFlexContentEnd {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+%displayFlexItemsStart {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+%displayFlexItemsEnd {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+%displayFlexContentSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%displayFlexContentSpaceAround {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+%displayFlexContentSpaceEvenly {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+%darkIconStyle {
+  border-radius: 50%;
+  background-color: $general;
+  width: 35px;
+  height: 35px;
+  @extend %displayFlexCenter;
+  cursor: pointer;
+  svg {
+    width: 100%;
+  }
+  &:hover {
+    background-color: $hover_secondary;
+  }
+}
+
+%lightIconStyle {
+  @extend %darkIconStyle;
+  &:hover {
+    background-color: none;
+  }
+}
+
+%bigDarkIconStyle {
+  @extend %darkIconStyle;
+  width: 50px;
+  height: 50px;
+}

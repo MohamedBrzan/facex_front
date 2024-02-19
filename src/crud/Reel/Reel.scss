@@ -1,0 +1,13 @@
+@use '../../sass/Colors' as *;
+@use '../../sass/Mixins' as *;
+@use '../../sass/Styles' as *;
+
+.upload_reel {
+  form {
+    @extend %miniSectionStyle;
+    .submit_btn {
+      color: $general;
+      background-color: $primary;
+    }
+  }
+}
